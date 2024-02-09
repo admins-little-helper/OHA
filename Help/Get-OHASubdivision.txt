@@ -1,0 +1,80 @@
+
+NAME
+    Get-OHASubdivision
+    
+SYNOPSIS
+    Returns a list of subdivisions for a given country for which holiday information can be queried from https://www.openholidaysapi.org/.
+    
+    
+SYNTAX
+    Get-OHASubdivision [[-Country] <String>] [-Raw] [<CommonParameters>]
+    
+    
+DESCRIPTION
+    The 'Get-OHASubdivision' function returns a list of subdivisions for a given country for which holiday information can be queried from https://www.openholidaysapi.org/.
+    
+
+PARAMETERS
+    -Country <String>
+        Get the session variable content.
+        Get the list of countries retrieved from the session variable.
+        Return a list of countries starting with the charaters already typed for the parameter.
+        
+        Required?                    false
+        Position?                    1
+        Default value                (Get-Culture).twoletterISOLanguageName.ToUpper()
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+        
+    -Raw [<SwitchParameter>]
+        If specified, raw json data is returned as it's delivered from the API.
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+        
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216). 
+    
+INPUTS
+    Nothing
+    
+    
+OUTPUTS
+    Nothing
+    
+    
+NOTES
+    
+    
+        Author:     Dieter Koch
+        Email:      diko@admins-little-helper.de
+    
+    -------------------------- EXAMPLE 1 --------------------------
+    
+    PS > Get-OHASubdivision -Country DE
+    
+    Returns a list of all subdivisions for Germany that are supported by the API in a custom table format.
+    
+    
+    
+    
+    -------------------------- EXAMPLE 2 --------------------------
+    
+    PS > Get-OHASubdivision -Country AT -Raw
+    
+    Returns a list of all subdivisions for Austria that are supported by the API in a raw json format as it is retrieved from the API.
+    
+    
+    
+    
+    
+RELATED LINKS
+    https://github.com/admins-little-helper/OHA/blob/main/Help/Get-OHASubdivision.txt
+
+

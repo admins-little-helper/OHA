@@ -1,0 +1,168 @@
+
+NAME
+    Get-OHAHoliday
+    
+SYNOPSIS
+    Retrieves public holidays or school holiday using the API from https://www.openholidaysapi.org/.
+    
+    
+SYNTAX
+    Get-OHAHoliday [-HolidayType <String>] [-Country <String>] [-Subdivision <String>] [-Language <String>] [-SaveAsIcal <DirectoryInfo>] [-Raw] [<CommonParameters>]
+    
+    Get-OHAHoliday [-HolidayType <String>] [-Country <String>] [-Subdivision <String>] [-Language <String>] [-StartDate <DateTime>] [-EndDate <DateTime>] [-SaveAsIcal <DirectoryInfo>] [-Raw] [<CommonParameters>]
+    
+    Get-OHAHoliday [-HolidayType <String>] [-Country <String>] [-Subdivision <String>] [-Language <String>] [-TimeFrame <String>] [-SaveAsIcal <DirectoryInfo>] [-Raw] [<CommonParameters>]
+    
+    
+DESCRIPTION
+    The 'Get-OHAHoliday' function retrieves public holidays or school holiday using the API from https://www.openholidaysapi.org/.
+    
+
+PARAMETERS
+    -HolidayType <String>
+        Specifies the type of holiday to retrieve. Can be set to either 'PublicHolidays' or 'SchoolHolidays'.
+        
+        Required?                    false
+        Position?                    named
+        Default value                PublicHolidays
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+        
+    -Country <String>
+        Specifies the two letter ISO code for the country for which to return holiday data.
+        
+        Required?                    false
+        Position?                    named
+        Default value                (Get-Culture).twoletterISOLanguageName.ToUpper()
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+        
+    -Subdivision <String>
+        Specifies the code for the subdivision of a country for which to return holiday data.
+        Subdivisions are only available for some country. Call 'Get-OHASubdivision -Country <Country>' to get a list of valid subdivision codes for a specific country.
+        Supports tab completion. Limits the available values if a value for the 'Country' parameter was already specified.
+        
+        Required?                    false
+        Position?                    named
+        Default value                
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+        
+    -Language <String>
+        Specifies the language in which the holiday names should be displayed. This is either the officially supported languages for a country or English.
+        
+        Required?                    false
+        Position?                    named
+        Default value                (Get-Culture).twoletterISOLanguageName.ToUpper()
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+        
+    -StartDate <DateTime>
+        Specifies the start date for the timeframe for which holidays should be returned.
+        
+        Required?                    false
+        Position?                    named
+        Default value                $(Get-Date -Month 1 -Day 1)
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+        
+    -EndDate <DateTime>
+        Specifies the end date for the timeframe for which holidays should be returned.
+        
+        Required?                    false
+        Position?                    named
+        Default value                $StartDate.AddMonths(12).AddDays(-1)
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+        
+    -TimeFrame <String>
+        Allows to specify a timeframe instead of start and end dates.
+        Support values are: "ThisYear", "NextYear", "LastYear", "ThisQuarter", "NextQuarter", "LastQuarter", "ThisMonth", "NextMonth", "LastMonth"
+        
+        Required?                    false
+        Position?                    named
+        Default value                
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+        
+    -SaveAsIcal <DirectoryInfo>
+        If specified, the result will be a string in ICAL format.
+        
+        Required?                    false
+        Position?                    named
+        Default value                
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+        
+    -Raw [<SwitchParameter>]
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+        
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216). 
+    
+INPUTS
+    Nothing
+    
+    
+OUTPUTS
+    PSCustomObject
+    
+    
+NOTES
+    
+    
+        Author:     Dieter Koch
+        Email:      diko@admins-little-helper.de
+    
+    -------------------------- EXAMPLE 1 --------------------------
+    
+    PS > Get-OHAHoliday
+    
+    Returns public holidays for the country and in the language based on the OS language settings.
+    Holidays will be queried for the current year by default.
+    
+    
+    
+    
+    -------------------------- EXAMPLE 2 --------------------------
+    
+    PS > Get-OHAHoliday -Country DE
+    
+    Returns public holidays for all subdivisions in Germany in the language based on the OS language settings.
+    If the language configured on the system (as it is returned by 'Get-Culture') does not match any of the offical languages for the specified country, it will use English instead.
+    Holidays will be quried for the current year by default.
+    
+    
+    
+    
+    -------------------------- EXAMPLE 3 --------------------------
+    
+    PS > Get-OHAHoliday -Country DE -Subdivision DE-BW -Language DE -StartDate (Get-Date -Day 1 -Month 1 -Year 2025)
+    
+    Returns public holidays for Germany in 2025. Showing holiday names in German language. The result will be limited to the federal state of Baden-Wuerttemberg.
+    
+    
+    
+    
+    -------------------------- EXAMPLE 4 --------------------------
+    
+    PS > Get-OHAHoliday -HolidayType SchoolHoliday -Country AT -Language DE -TimeFrame NextYear
+    
+    Returns school holidays for all subdivisions in Austria for the next year.
+    
+    
+    
+    
+    
+RELATED LINKS
+    https://github.com/admins-little-helper/OHA/blob/main/Help/Get-OHAHoliday.txt
+
+

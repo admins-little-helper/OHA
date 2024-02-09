@@ -1,0 +1,62 @@
+
+NAME
+    Initialize-OHASession
+    
+SYNOPSIS
+    Initializes the module session variable that is used to store some data for all functions in the module.
+    
+    
+SYNTAX
+    Initialize-OHASession [-Force] [<CommonParameters>]
+    
+    
+DESCRIPTION
+    The 'Initialize-OHASession' function initializes the module session variable that is used to store some data for all functions in the module.
+    This function is actually only used within the module and therefore could be made private. However, it has to be exported to the global
+    scope in order have the session variable available in all functions.
+    
+
+PARAMETERS
+    -Force [<SwitchParameter>]
+        If specified, data stored in the session variable is updated, no matter if the validity time period has expired.
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+        
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216). 
+    
+INPUTS
+    Nothing
+    
+    
+OUTPUTS
+    Nothing
+    
+    
+NOTES
+    
+    
+        Author:     Dieter Koch
+        Email:      diko@admins-little-helper.de
+    
+    -------------------------- EXAMPLE 1 --------------------------
+    
+    PS > Initialize-OHASession -Force
+    
+    Update the data stored in the session variable.
+    
+    
+    
+    
+    
+RELATED LINKS
+    https://github.com/admins-little-helper/OHA/blob/main/Help/Initialize-OHASession.txt
+
+

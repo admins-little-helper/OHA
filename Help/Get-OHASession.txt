@@ -1,0 +1,51 @@
+
+NAME
+    Get-OHASession
+    
+SYNOPSIS
+    Returns the session variable hashtable.
+    
+    
+SYNTAX
+    Get-OHASession [<CommonParameters>]
+    
+    
+DESCRIPTION
+    The 'Get-OHASession' function returns the session variable hashtable.
+    
+
+PARAMETERS
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216). 
+    
+INPUTS
+    Nothing
+    
+    
+OUTPUTS
+    Nothing
+    
+    
+NOTES
+    
+    
+        Author:     Dieter Koch
+        Email:      diko@admins-little-helper.de
+    
+    -------------------------- EXAMPLE 1 --------------------------
+    
+    PS > Get-OHASession
+    
+    Returns the session variable hashtable.
+    
+    
+    
+    
+    
+RELATED LINKS
+    https://github.com/admins-little-helper/OHA/blob/main/Help/Get-OHASession.txt
+
+
