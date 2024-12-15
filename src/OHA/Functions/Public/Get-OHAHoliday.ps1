@@ -129,7 +129,7 @@ function Get-OHAHoliday {
         Email:      diko@admins-little-helper.de
 
     .LINK
-        https://github.com/admins-little-helper/OHA/blob/main/Help/Get-OHAHoliday.txt
+        https://github.com/admins-little-helper/OHA/blob/main/docs/Get-OHAHoliday.md
     #>
 
     [OutputType([PSCustomObject])]
@@ -154,7 +154,7 @@ function Get-OHAHoliday {
                 # Get the list of countries retrieved from the session variable.
                 $CountryList = $OHASessionTemp.OHAData.Countries.isoCode
 
-                # Return a list of countries starting with the charaters already typed for the parameter.
+                # Return a list of countries starting with the characters already typed for the parameter.
                 $CountryList.where({ $_ -like "$WordToComplete*" })
             })]
         [String]

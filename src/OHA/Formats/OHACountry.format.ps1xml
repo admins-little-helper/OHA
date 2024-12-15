@@ -1,29 +1,33 @@
 <Configuration>
     <ViewDefinitions>
         <View>
-            <Name>OHALanguageDefaultView</Name>
+            <Name>OHACountryDefaultView</Name>
             <ViewSelectedBy>
-                <TypeName>OHALanguage</TypeName>
+                <TypeName>OHACountry</TypeName>
             </ViewSelectedBy>
             <TableControl>
                 <AutoSize />
                 <TableHeaders>
                     <TableColumnHeader>
                         <Label>IsoCode</Label>
-                        <Alignment>left</Alignment>
+                        <Alignment>Left</Alignment>
                     </TableColumnHeader>
                     <TableColumnHeader>
                         <Label>Name</Label>
-                        <Alignment>left</Alignment>
+                        <Alignment>Left</Alignment>
                     </TableColumnHeader>
                     <TableColumnHeader>
                         <Label>LocalName</Label>
-                        <Alignment>left</Alignment>
+                        <Alignment>Left</Alignment>
+                    </TableColumnHeader>
+                    <TableColumnHeader>
+                        <Label>OfficialLanguages</Label>
+                        <Alignment>Left</Alignment>
                     </TableColumnHeader>
                 </TableHeaders>
                 <TableRowEntries>
                     <TableRowEntry>
-                        <Wrap/>
+                        <Wrap />
                         <TableColumnItems>
                             <TableColumnItem>
                                 <PropertyName>isoCode</PropertyName>
@@ -33,6 +37,9 @@
                             </TableColumnItem>
                             <TableColumnItem>
                                 <PropertyName>LocalName</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>officialLanguages</PropertyName>
                             </TableColumnItem>
                         </TableColumnItems>
                     </TableRowEntry>

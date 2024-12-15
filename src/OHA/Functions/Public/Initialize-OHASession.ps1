@@ -75,7 +75,7 @@ function Initialize-OHASession {
         Email:      diko@admins-little-helper.de
 
     .LINK
-        https://github.com/admins-little-helper/OHA/blob/main/Help/Initialize-OHASession.txt
+        https://github.com/admins-little-helper/OHA/blob/main/docs/Initialize-OHASession.md
     #>
 
     Param(
@@ -114,7 +114,7 @@ function Initialize-OHASession {
             $Script:OHASession.OHAData.Subdivisions = foreach ($Country in $Script:OHASession.OHAData.Countries) {
                 [PSCustomObject]@{
                     Country      = $Country.isoCode
-                    SubDivisions = Get-OHASubDivision -Country $Country.isoCode -Raw
+                    SubDivisions = Get-OHASubdivision -Country $Country.isoCode -Raw
                 }
             }
         }

@@ -70,7 +70,7 @@ function Get-OHASession {
         Email:      diko@admins-little-helper.de
 
     .LINK
-        https://github.com/admins-little-helper/OHA/blob/main/Help/Get-OHASession.txt
+        https://github.com/admins-little-helper/OHA/blob/main/docs/Get-OHASession.md
     #>
 
     return $Script:OHASession

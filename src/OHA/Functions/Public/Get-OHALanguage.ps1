@@ -2,7 +2,7 @@
 
 .VERSION 1.0.0
 
-.GUID d9cbe6ef-91d1-4bb2-8fd1-2cae12f5d221
+.GUID f60df659-76b7-43d5-bfda-a850c9864a27
 
 .AUTHOR Dieter Koch
 
@@ -46,26 +46,26 @@ https://www.openholidaysapi.org/
 #>
 
 
-function Get-OHACountry {
+function Get-OHALanguage {
     <#
     .SYNOPSIS
-        Returns a list of countries for which holiday information can be queried from https://www.openholidaysapi.org/.
+        Returns a list of languages supported by https://www.openholidaysapi.org/.
 
     .DESCRIPTION
-        The 'Get-OHACountry' function returns a list of countries for which holiday information can be queried from https://www.openholidaysapi.org/.
+        The 'Get-OHALanguage' function returns a list of languages supported by https://www.openholidaysapi.org/.
 
     .PARAMETER Raw
         If specified, raw json data is returned as it's delivered from the API.
 
     .EXAMPLE
-        Get-OHACountry
+        Get-OHALanguage
 
-        Returns a list of all countries supported by the API in a custom table format.
+        Returns a list of all languages supported by the API in a custom table format.
 
     .EXAMPLE
-        Get-OHACountry -Raw
+        Get-OHALanguage -Raw
 
-        Returns a list of all countries supported by the API in a raw json format as it is retrieved from the API.
+        Returns a list of all languages supported by the API in a raw json format as it is retrieved from the API.
 
     .INPUTS
         Nothing
@@ -78,7 +78,7 @@ function Get-OHACountry {
         Email:      diko@admins-little-helper.de
 
     .LINK
-        https://github.com/admins-little-helper/OHA/blob/main/Help/Get-OHACountry.txt
+        https://github.com/admins-little-helper/OHA/blob/main/docs/Get-OHALanguage.md
     #>
 
     [CmdletBinding()]
@@ -87,10 +87,10 @@ function Get-OHACountry {
         $Raw
     )
 
-    # Define paramters for retrieving countries from OHA Rest API.
+    # Define paramters for retrieving languages from OHA Rest API.
     $Params = @{
         Method  = "Get"
-        Uri     = $Script:OHASession.ApiBaseUri + "/Countries"
+        Uri     = $Script:OHASession.ApiBaseUri + "/Languages"
         Body    = @{}
         Headers = @{'accept' = 'text/json' }
     }
@@ -107,12 +107,11 @@ function Get-OHACountry {
         Write-Verbose -Message "Returning data in custom format."
         $ConvertedResult = foreach ($Item in $Result) {
             $ConvertedItem = [PSCustomObject]@{
-                IsoCode           = $Item.isoCode
-                Name              = ($Item.Name.where({ $_.language -eq 'EN' })).text
-                LocalName         = ($Item.Name.where({ $_.language -eq $Item.officialLanguages[0] })).text
-                OfficialLanguages = $Item.officialLanguages
+                IsoCode   = $Item.isoCode
+                Name      = ($Item.Name.where({ $_.language -eq 'EN' })).text
+                LocalName = ($Item.Name.where({ $_.language -eq $Item.isoCode })).text
             }
-            $ConvertedItem.PSObject.TypeNames.Insert(0, "OHACountry")
+            $ConvertedItem.PSObject.TypeNames.Insert(0, "OHALanguage")
             $ConvertedItem
         }
         $ConvertedResult

@@ -78,7 +78,7 @@ function Get-OHASubdivision {
         Email:      diko@admins-little-helper.de
 
     .LINK
-        https://github.com/admins-little-helper/OHA/blob/main/Help/Get-OHASubdivision.txt
+        https://github.com/admins-little-helper/OHA/blob/main/docs/Get-OHASubdivision.md
     #>
 
     [CmdletBinding()]

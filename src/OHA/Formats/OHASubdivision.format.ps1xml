@@ -1,68 +1,59 @@
 <Configuration>
     <ViewDefinitions>
         <View>
-            <Name>OHAHolidaySchoolHolidaysDefaultView</Name>
+            <Name>OHACountryDefaultView</Name>
             <ViewSelectedBy>
-                <TypeName>OHAHolidaySchoolHolidays</TypeName>
+                <TypeName>OHACountry</TypeName>
             </ViewSelectedBy>
             <TableControl>
                 <AutoSize />
                 <TableHeaders>
                     <TableColumnHeader>
-                        <Label>StartDate</Label>
-                        <Alignment>right</Alignment>
+                        <Label>Code</Label>
+                        <Alignment>Left</Alignment>
                     </TableColumnHeader>
                     <TableColumnHeader>
-                        <Label>EndDate</Label>
-                        <Alignment>right</Alignment>
+                        <Label>IsoCode</Label>
+                        <Alignment>Left</Alignment>
                     </TableColumnHeader>
                     <TableColumnHeader>
-                        <Label>Type</Label>
-                        <Alignment>left</Alignment>
+                        <Label>ShortName</Label>
+                        <Alignment>Left</Alignment>
                     </TableColumnHeader>
                     <TableColumnHeader>
                         <Label>Name</Label>
-                        <Alignment>left</Alignment>
+                        <Alignment>Left</Alignment>
                     </TableColumnHeader>
                     <TableColumnHeader>
-                        <Label>Nationwide</Label>
-                        <Alignment>left</Alignment>
+                        <Label>LocalName</Label>
+                        <Alignment>Left</Alignment>
                     </TableColumnHeader>
                     <TableColumnHeader>
-                        <Label>Subdivisions</Label>
-                        <Alignment>left</Alignment>
-                    </TableColumnHeader>
-                    <TableColumnHeader>
-                        <Label>Comment</Label>
-                        <Alignment>left</Alignment>
+                        <Label>OfficialLanguages</Label>
+                        <Alignment>Left</Alignment>
                     </TableColumnHeader>
                 </TableHeaders>
                 <TableRowEntries>
                     <TableRowEntry>
-                        <Wrap/>
+                        <Wrap />
                         <TableColumnItems>
                             <TableColumnItem>
-                                <PropertyName>StartDate</PropertyName>
-                                <FormatString>{0:d}</FormatString>
+                                <PropertyName>Code</PropertyName>
                             </TableColumnItem>
                             <TableColumnItem>
-                                <PropertyName>EndDate</PropertyName>
-                                <FormatString>{0:d}</FormatString>
+                                <PropertyName>isoCode</PropertyName>
                             </TableColumnItem>
                             <TableColumnItem>
-                                <PropertyName>Type</PropertyName>
+                                <PropertyName>ShortName</PropertyName>
                             </TableColumnItem>
                             <TableColumnItem>
                                 <PropertyName>Name</PropertyName>
                             </TableColumnItem>
                             <TableColumnItem>
-                                <PropertyName>Nationwide</PropertyName>
+                                <PropertyName>LocalName</PropertyName>
                             </TableColumnItem>
                             <TableColumnItem>
-                                <PropertyName>Subdivisions</PropertyName>
-                            </TableColumnItem>
-                            <TableColumnItem>
-                                <PropertyName>Comment</PropertyName>
+                                <PropertyName>officialLanguages</PropertyName>
                             </TableColumnItem>
                         </TableColumnItems>
                     </TableRowEntry>

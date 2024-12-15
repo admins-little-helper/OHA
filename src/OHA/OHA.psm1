@@ -60,8 +60,8 @@ $OHASession = [ordered]@{
 New-Variable -Name OHASession -Value $OHASession -Scope Script -Force
 
 # Get public and private function definition files.
-$PublicScripts = @( Get-ChildItem -Path $PSScriptRoot\Public\*.ps1 -ErrorAction SilentlyContinue )
-$PrivateScripts = @( Get-ChildItem -Path $PSScriptRoot\Private\*.ps1 -ErrorAction SilentlyContinue )
+$PublicScripts = @( Get-ChildItem -Path $PSScriptRoot\Functions\Public\*.ps1 -ErrorAction SilentlyContinue )
+$PrivateScripts = @( Get-ChildItem -Path $PSScriptRoot\Functions\Private\*.ps1 -ErrorAction SilentlyContinue )
 
 # Dot source the files in public and private subfolders.
 foreach ($ScriptToImport in @($PrivateScripts + $PublicScripts)) {
